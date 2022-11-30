@@ -23,13 +23,6 @@ public class AuthController : Controller
     return View("/Views/Auth/signin.cshtml");
   }
 
-  [HttpPost]
-  [ActionName("signin")]
-  public HttpResponseMessage SignInApi()
-  {
-    return new HttpResponseMessage(HttpStatusCode.BadRequest);
-  }
-
 
   [Route("Auth/signup")]
   public IActionResult SignUp()
