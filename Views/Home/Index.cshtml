@@ -1,143 +1,80 @@
-﻿@{
-  
-    ViewData["Title"] = "Home Page";
-    var data = (List<EventModel>) ViewData["Message"];
-
-      
-
+@{
+  Layout = "_HomeLayout";
 }
 
- <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
+<div class="home">
+  <div class="thumbnail position-relative">
+    <div class="background w-100 h-100 position-absolute top-0"></div>
+    <div class="w-100 h-100 d-flex justify-content-center align-items-center thumbnail-content position-relative">
+      <div class="thumbnail-date display-grid">
+        <span class="number">14</span>
+        <div class="line-sm"></div>
+        <span class="number">20</span>
+        <div class="line-md"></div>
+        <span class="number-2">Juil</span>
+        <span class="number-2">2023</span>
+      </div>
+      <div class="home-title">
+        <h2 class="lg">International</h2>
+        <h2 class="lg">Festival of Carthage.</h2>
+        <button class="btn btn-primary but-btn">Buy Tickets</button>
+      </div>
     </div>
-<section class="section dashboard">
-      <div class="row">
-
-        <!-- Left side columns -->
-        <div class="col-lg-12">
-          <div class="row">
-
-            <!-- Recent Sales -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto" style="border-radius: 25px;padding: 30px;">
-                <div class="card-body">
-                  <h5 class="card-title">Recent Events <span>| Today @DateTime.Now</span></h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                       
-                        <th scope="col">#</th>
-                        <th scope="col">Event Name</th>
-                        <th scope="col">Event Description</th>
-                        <th scope="col">Presenter</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Settings</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach (EventModel item in data)
-        {
-            
-            
-            <tr>
-                   
-                        <td>@item.eventID</td>
-                        <td>@item.eventName</td>
-                        <td>@item.eventDesc</td>
-                        <td>@item.presenterName</td>
-                        <td>@item.category</td>
-                        <td>@item.location</td>
-                        @* <td><a asp-controller="Home" asp-action="Me" asp-route-myData=@item.eventID>Submit</a></td> *@
-                        <td>
-                          <div>
-                          <!-- Basic Modal -->
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#basicModal">
-                Delete
-              </button>
-              <div class="modal fade" id="basicModal" tabindex="-1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Basic Modal</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <a type="button" class="btn btn-danger rounded-pill" asp-controller="Home" asp-action="Me" asp-route-id=@item.eventID>Delete</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-                      <a type="button" class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id=@item.eventID>Edit</a>
-                    
-              </div><!-- End Basic Modal-->
-              </td>
-                        
-                 
-                      </tr>
-                      
-            
-            
-        }
-         
-                      @* <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>At praesentium minu</td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td>Blanditiis dolor omnis similique</td>
-                        <td>Bridie Kessler</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td>At recusandae consectetur</td>
-                        <td>Ashleigh Langosh</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td>Ut voluptatem id earum et</td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td>Sunt similique distinctio</td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr> *@
-                    </tbody>
-                  </table>
-                  
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
-          </div>
+  </div>
+  <div class="about d-flex justify-content-center align-items-center" id="about">
+    <div class="view d-flex justify-content-center align-items-center">
+      <div class="description w-75">
+        <h2 class="lg">A <span class="accent">Festival</span></h2>
+        <h2 class="lg">For You.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictum sollicitudin diam ac lorem cras tellus
+          facilisis ut. Morbi dictum ut sed pellentesque gravida id tristique. Nec vel quis at risus at donec sed.</p>
+      </div>
+      <div class="cards position-relative w-25">
+        <div class="card card-1 position-absolute">
+          <p>
+            Show
+          </p>
+        </div>
+        <div class="card card-2 position-absolute shadow">
+          <p>
+            Music & Dance
+          </p>
         </div>
       </div>
-</section>
-
+    </div>
+  </div>
+  <div class="plans d-flex justify-content-center align-items-center" id="plans">
+    <div class="view w-100">
+      <h2 class="text-center lg">Plans?</h2>
+      <div class="plans-list w-100">
+        <div class="shadow plan-item">
+          <p class="lg title">Eco</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatibus earum! Blanditiis
+            distinctio, laborum atque.
+          </p>
+          <div class="line"></div>
+          <p class="lg">10 DNT</p>
+        </div>
+        <div class="shadow plan-item">
+          <p class="lg title">Basic</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatibus earum! Blanditiis
+            distinctio, laborum atque.
+          </p>
+          <div class="line"></div>
+          <p class="lg">20 DNT</p>
+        </div>
+        <div class="shadow plan-item">
+          <p class="lg title">Premium</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatibus earum! Blanditiis
+            distinctio, laborum atque.
+          </p>
+          <div class="line"></div>
+          <p class="lg">50 DNT</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

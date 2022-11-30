@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("FestivalAdminDashboard")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("carthage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("FestivalAdminDashboard")]
-[assembly: System.Reflection.AssemblyTitleAttribute("FestivalAdminDashboard")]
+[assembly: System.Reflection.AssemblyProductAttribute("carthage")]
+[assembly: System.Reflection.AssemblyTitleAttribute("carthage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.

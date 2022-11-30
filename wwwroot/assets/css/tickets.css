@@ -1,0 +1,15 @@
+#main {
+  margin: 0px;
+  padding: 0px;
+  transition: all 0.3s;
+}
+
+.header .header-nav-item{
+  margin: 0 10px;
+  color: #FFF;
+}
+
+.logo span {
+  border-right: 1px solid #FFF;
+  padding-right: 20px;
+}

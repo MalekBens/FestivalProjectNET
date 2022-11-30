@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Add Page";
+    var data = ViewData["Message"];
+   
+     Console.WriteLine(data);
+}
+<div class="pagetitle">
+      <h1>Add Events</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item">Forms</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  
+     <section class="section">
+      
+  <div class="row d-flex flex-column align-items-center justify-content-center">
+ <div class="col-lg-6 ">
+ <div class="card" style="border-radius: 25px;padding: 30px;">
+            <div class="card-body">
+              <h5 class="card-title">Edit Event Form</h5>
+
+              <!-- Floating Labels Form -->
+              <form class="row g-3" action="/Home/editEvent" method="POST">
+                <div class="col-md-6">
+                  @* <label for="validationCustom01" class="form-label">Event Name</label> *@
+                  <div class="form-floating">
+                    
+                    <input type="text" class="form-control" id="floatingName" placeholder="Event Name"name="eventName" required value="@data" disabled>
+                    <label for="floatingName">Event Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name"name="presenterName"required>
+                    <label for="floatingName">Presenter Name</label>
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"name="eventDesc"required></textarea>
+                    <label for="floatingTextarea">Event Description</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingCity" placeholder="Category"name="category"required>
+                      <label for="floatingCity">Category</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingCity" placeholder="Location"name="location"required>
+                      <label for="floatingCity">Location Address</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- End floating Labels Form -->
+
+            </div>
+          </div>

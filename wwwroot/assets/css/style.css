@@ -77,7 +77,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #4154f1;
+  background: #E9D464;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -377,19 +377,29 @@ h6 {
 
 @media (min-width: 1200px) {
   .logo {
-    width: 280px;
+    /* width: 280px; */
   }
 }
 
 .logo img {
-  max-height: 26px;
+  max-height: 30px;
   margin-right: 6px;
+}
+
+.btn, .btn:active, .btn:focus{
+  background-color: #E9D464 !important;
+  border-color: #E9D464 !important;
+}
+
+.btn:hover{
+  background-color: #fff4b3 !important;
+  border-color: #fff4b3 !important;
 }
 
 .logo span {
   font-size: 26px;
   font-weight: 700;
-  color: #012970;
+  color: #FFF;
   font-family: "Nunito", sans-serif;
 }
 
@@ -398,8 +408,8 @@ h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
-  padding-left: 20px;
+  background-color: #333;
+  padding : 30px 50px;
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
@@ -408,7 +418,7 @@ h6 {
   font-size: 32px;
   padding-left: 10px;
   cursor: pointer;
-  color: #012970;
+  color: #FFF;
 }
 
 .header .search-bar {
@@ -485,13 +495,13 @@ h6 {
 
 .header-nav .nav-icon {
   font-size: 22px;
-  color: #012970;
+  color: #FFF;
   margin-right: 25px;
   position: relative;
 }
 
 .header-nav .nav-profile {
-  color: #012970;
+  color: #FFF;
 }
 
 .header-nav .nav-profile img {

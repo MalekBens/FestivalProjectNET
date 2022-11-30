@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "FestivalAdminDashboard/1.0.0": {
+      "carthage/1.0.0": {
         "dependencies": {
           "MySqlConnector": "2.2.0"
         },
         "runtime": {
-          "FestivalAdminDashboard.dll": {}
+          "carthage.dll": {}
         }
       },
       "MySqlConnector/2.2.0": {
@@ -25,7 +25,7 @@
     }
   },
   "libraries": {
-    "FestivalAdminDashboard/1.0.0": {
+    "carthage/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

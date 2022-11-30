@@ -1,0 +1,179 @@
+#main {
+  margin: 0px;
+  padding: 0px;
+  transition: all 0.3s;
+}
+
+.header {
+  background-color: transparent;
+  height: 120px;
+}
+
+.header .header-nav-item{
+  margin: 0 10px;
+  color: #FFF;
+}
+
+.home .view {
+  max-width: 1000px;
+  margin : auto;
+}
+
+.home .shadow{
+  box-shadow: 0 6px 25px 0 rgb(3 8 24/ 8%), 0 15px 74px 0 rgb(233 212 100 / 20%) !important;
+}
+
+.logo span {
+  border-right: 1px solid #FFF;
+  padding-right: 20px;
+}
+
+.home .thumbnail{
+  height: 100vh;
+  background-image: url('../img/home.jpeg');
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.home .thumbnail .background{
+  z-index: 5;
+  background-color: #333;
+  opacity: .7;
+}
+
+.home .thumbnail .thumbnail-content{
+  z-index: 10;
+  padding: 20px;
+  color: #FFF;
+}
+
+.home .thumbnail .home-title{
+  margin-left: 20px;
+}
+
+.home .thumbnail .home-title p{
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.home .thumbnail .home-title .but-btn{
+  background-color: #E9D464;
+  border-color: #E9D464;
+  font-size: large;
+  padding: 12px 24px;
+}
+
+.home .thumbnail .thumbnail-date{
+  display: grid;
+  justify-items: center;
+  border: 1px solid #FFF;
+  border-radius: 20px;
+  padding: 16px 24px;
+}
+
+.home .thumbnail .number{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.home .thumbnail .number-2{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.home .thumbnail .line-sm{
+  height: 1px;
+  width: 100%;
+  background-color: #FFF;
+}
+
+.home .thumbnail .line-md{
+  height: 2px;
+  width: 100%;
+  background-color: #FFF;
+}
+
+.home .about,.home .plans{
+  height: 100vh;
+  padding: 20px;
+}
+
+.home .about .description{
+  padding-right: 20px;
+}
+
+.home .lg{
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.home .about .description .accent{
+  color: #E9D464;
+}
+
+.home .about .cards{
+  min-height: 400px;
+}
+
+.home .about .card{
+  border-radius: 30px;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home .about .card >p{
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+}
+
+.home .about .card-1{
+  color: white;
+  background-color: #E9D464;
+  top: 0;
+  left: 0;
+  font-size: 50px;
+}
+
+.home .about .card-2{
+  font-size: 40px;
+  right: 0;
+  bottom: 0;
+}
+
+.plans .plans-list{
+  display: grid;
+  grid-template-columns: repeat(3,30%);
+  column-gap: 5%;
+  margin: 20px 0;
+}
+
+.plans .plans-list .plan-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.plans .plans-list .plan-item .line{
+  background-color: #E9D464;
+  height: 1px;
+  width: 100%;
+  margin: 10px 0;
+}
+.plans .plans-list .plan-item .lg{
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.plans .plans-list .plan-item .title{
+  margin-bottom: 20px;
+  font-size: 40px;
+  color: #E9D464;
+}
