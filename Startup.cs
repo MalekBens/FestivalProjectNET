@@ -22,7 +22,6 @@ public class Startup
     {
       Console.WriteLine("Connecting to Database");
       opt.UseMySQL(_configuration.GetConnectionString("DefaultConnection")??"");
-
     });
 
     services.AddDatabaseDeveloperPageExceptionFilter();

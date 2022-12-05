@@ -1,5 +1,6 @@
 @{
   Layout = "_AuthLayout";
+  var error = TempData["error"];
 }
 
 <div class="auth-content">
@@ -8,11 +9,17 @@
     <h2 class="d-none d-lg-block">Carthage</h2>
   </a>
   <div class="form-container">
-    <form action="" class="form">
+    <form asp-controller="auth" asp-action="signUpHandle" class="form">
       <h3 class="page-title">Sign Up</h3>
       <p>
         Create your personal account.
       </p>
+      @if (error != null)
+      {
+        <p class="error">
+          @error
+        </p>
+      }
       <div class="input-container">
         <label for="firstName">First name</label>
         <input id="firstName" name="firstName" type="text">

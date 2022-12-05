@@ -17,7 +17,6 @@ public class User
   [Required]
   public string password { get; set; } = string.Empty;
 
-  [Display(Name = "fullName")]
   public string fullName
   {
     get
