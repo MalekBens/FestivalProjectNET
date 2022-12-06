@@ -953,19 +953,21 @@ body {
 .page-header {
     min-height: 520px;
     padding-top: 280px;
-    background-size: cover;
+    
 }
 
-.about-us .page-header {
-    background: url("images/about-us-header-background.jpg") no-repeat;
-    background-size: cover;
-}
+
 
 .page-header .entry-title {
     font-size: 72px;
-    color: white;
+   background-color: rgba(255, 255, 255, 0.742);
     margin: 0;
     padding: 0;
+    color: #232127;
+    font-weight: bolder;
+    width: fit-content;
+    text-transform: uppercase;
+
 }
 
 .page-header .breadcrumbs {
@@ -978,8 +980,11 @@ body {
 }
 
 .page-header .breadcrumbs li {
+    margin-top: 20px;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.879);
     padding-right: 14px;
+    color: black;
 }
 
 .page-header .breadcrumbs li::after {
@@ -999,7 +1004,7 @@ body {
 
 .page-header .breadcrumbs li a {
     text-decoration: none;
-    color: #fff;
+    color: #232127;
 }
 
 .main-content {
@@ -1020,6 +1025,7 @@ body {
     font-size: 48px;
     font-weight: 600;
     color: #040608;
+    margin-bottom: 20px;
 }
 
 .about-us .main-content .entry-content {
@@ -1226,7 +1232,6 @@ body {
 # tickets-page
 ------------------------------------------------------------*/
 .tickets-page {
-    background: url("images/elements-total-background.jpg") no-repeat;
     width: 100%;
     height: 100%;
 }
@@ -1235,7 +1240,8 @@ body {
 # Page Header
 ------------------------------------------------------------*/
 .tickets-page .page-header {
-    background: url("images/tickets-page-header-background.jpg") no-repeat;
+    
+    background: url("../assets/img/slides-2.jpg") no-repeat;
 }
 
 .tickets-page .tabs {
@@ -1394,6 +1400,8 @@ body {
 .tickets-page .event-tickets .ticket-row {
     background: #f4f6f7;
     margin-bottom: 15px;
+    padding-right: 15px;
+    m
 }
 
 .tickets-page .event-tickets .ticket-row .ticket-type {
@@ -1463,7 +1471,7 @@ body {
     width: 100px;
     font-size: 16px;
     font-weight: 500;
-    color: #ff2630;
+    color: white;
 }
 
 /*------------------------------------------------------------
@@ -1478,10 +1486,13 @@ body {
 /*------------------------------------------------------------
 # site-header
 ------------------------------------------------------------*/
-.blog-page .page-header {
-    background: url("images/blog-header-background.jpg") no-repeat;
+.page-header {
+    background: url("../assets/img/slides-2.jpg") no-repeat center;
 }
-
+.blog-page .page-header{
+    
+    background-image: url('../assets/img/4588934_2422400.jpg')
+}
 .blog-list-page .single-blog-content {
     display: none;
 }
@@ -1494,6 +1505,7 @@ body {
     margin-top: 100px;
     box-shadow: 15px 18px 100px rgba(0, 0, 0, 0.1);
     transition: .35s;
+  border-radius: 20px;
 }
 
 .blog-page .blog-list-page .blog-content:hover {
@@ -1509,6 +1521,7 @@ body {
 .blog-page .blog-list-page .blog-content .featured-image img {
     max-width: 100%;
     position: relative;
+    border-radius: 20px;
 }
 
 .blog-page .blog-list-page .blog-content .box-link-date {
@@ -1516,7 +1529,8 @@ body {
     top: 135px;
     left: 0;
     padding: 10px 25px;
-    background: -webkit-linear-gradient(#00d0ff, #25ffbf);
+    background: -webkit-linear-gradient(#E9D464, #edd132ab);
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -1529,6 +1543,7 @@ body {
 .blog-page .blog-list-page .blog-content .entry-content {
     padding: 40px 45px;
     background: white;
+    
 }
 
 .blog-page .blog-list-page .blog-content .entry-content .entry-header h2 {
