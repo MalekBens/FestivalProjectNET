@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+
 using carthage.Models.Auth;
 using carthage.Models;
 using carthage.DAL;
@@ -11,10 +13,12 @@ public class AuthController : Controller
   public static char ishow;
   private readonly ILogger<AuthController> _logger;
   private readonly ApplicationDbContext _context;
-  public AuthController(ILogger<AuthController> logger, ApplicationDbContext context)
+  private readonly JwtAuthenticationManager jwtAuthenticationManager;
+  public AuthController(ILogger<AuthController> logger, ApplicationDbContext context, JwtAuthenticationManager jwtAuthenticationManager)
   {
     _logger = logger;
     _context = context;
+    this.jwtAuthenticationManager = jwtAuthenticationManager;
   }
 
   [Route("Auth/signin")]
@@ -37,7 +41,8 @@ public class AuthController : Controller
     User? user = _context.Users.Where(user => user.email == data.email && user.password == password).FirstOrDefault();
     if (user != null)
     {
-
+      var token = jwtAuthenticationManager.Authenticate(data.email);
+      HttpContext.Session.SetString("token", token);
       return RedirectToAction("index", "home");
     }
     else
