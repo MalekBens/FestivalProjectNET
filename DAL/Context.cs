@@ -13,15 +13,14 @@ public class ApplicationDbContext : DbContext
   }
 
   public DbSet<User> Users { get; set; }
+  public DbSet<Role> Roles { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
-    modelBuilder.Entity<User>().ToTable("Users");
+    modelBuilder.Entity<User>().ToTable("Users")
+    .HasOne<Role>(u => u.role).WithMany().HasForeignKey(u => u.roleID).IsRequired();
+    modelBuilder.Entity<Role>().ToTable("Roles").HasMany<User>()
+    .WithOne(u => u.role).HasForeignKey(u => u.roleID).OnDelete(DeleteBehavior.Cascade);
   }
-
-  // protected override void OnModelCreating(DbModelBuilder modelBuilder)
-  // {
-  //   modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-  // }
 
 }

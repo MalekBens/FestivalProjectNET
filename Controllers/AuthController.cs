@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 
 using carthage.Models.Auth;
 using carthage.Models;
@@ -38,7 +37,7 @@ public class AuthController : Controller
   public IActionResult SignInHandle(Signin data)
   {
     string password = Crypte.EncodePasswordToBase64(data.password);
-    User? user = _context.Users.Where(user => user.email == data.email && user.password == password).FirstOrDefault();
+    User? user = _context.Users.Where(u => u.email == data.email && u.password == password).FirstOrDefault();
     if (user != null)
     {
       var token = jwtAuthenticationManager.Authenticate(data.email);
@@ -64,16 +63,35 @@ public class AuthController : Controller
     }
     else
     {
-      _context.Users.Add(new User()
+      Role? userRole = _context.Roles.Where(role => role.name == "USER").FirstOrDefault();
+      if (userRole != null)
       {
-        email = data.email,
-        password = password,
-        firstName = data.firstName,
-        lastName = data.lastName
-      });
-      _context.SaveChanges();
-      return RedirectToAction("signup");
+        _context.Users.Add(new User()
+        {
+          email = data.email,
+          password = password,
+          firstName = data.firstName,
+          lastName = data.lastName,
+          roleID = userRole.ID
+        });
+        _context.SaveChanges();
+        var token = jwtAuthenticationManager.Authenticate(data.email);
+        HttpContext.Session.SetString("token", token);
+        return RedirectToAction("index", "home");
+      }
+      else
+      {
+        @TempData["error"] = "Erreur interne";
+        return RedirectToAction("signup");
+      }
     }
+  }
+
+  [Route("Auth/SignOut")]
+  public IActionResult SignOut()
+  {
+    HttpContext.Session.Remove("token");
+    return RedirectToAction("index", "home");
   }
 
 

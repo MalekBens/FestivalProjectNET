@@ -1,5 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 
@@ -16,14 +17,13 @@ public class JwtAuthenticationManager
 
   public string Authenticate(string username)
   {
-
     JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
     var tokenKey = Encoding.ASCII.GetBytes(_configuration["Jwt:Token"]);
     SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor()
     {
       Subject = new ClaimsIdentity(new Claim[]
         {
-          new Claim(ClaimTypes.Name, username)
+          new Claim("email", username)
         }),
       Expires = DateTime.UtcNow.AddDays(2),
 
@@ -34,5 +34,20 @@ public class JwtAuthenticationManager
     var token = tokenHandler.CreateToken(tokenDescriptor);
 
     return tokenHandler.WriteToken(token);
+  }
+
+  public string? DecriptToken(string token)
+  {
+    JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+    SecurityToken jsonToken = tokenHandler.ReadToken(token);
+    var tokenS = jsonToken as JwtSecurityToken;
+    try
+    {
+      return tokenS.Claims.First(claim => claim.Type == "email").Value;
+    }
+    catch (System.Exception)
+    {
+      return null;
+    }
   }
 }

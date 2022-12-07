@@ -1,5 +1,4 @@
 namespace carthage.Models;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,7 +15,10 @@ public class User
   public string email { get; set; } = string.Empty;
   [Required]
   public string password { get; set; } = string.Empty;
-
+  [Required]
+  [ForeignKey("roleID")]
+  public int roleID { get; set; }
+  public virtual Role role { get; }
   public string fullName
   {
     get
