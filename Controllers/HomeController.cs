@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using carthage.Models;
 using MySqlConnector;
+using carthage.Helper;
+using Microsoft.EntityFrameworkCore;
+
 
 using carthage.DAL;
 
@@ -11,14 +14,29 @@ public class HomeController : Controller
 {
   private readonly ILogger<HomeController> _logger;
   private readonly ApplicationDbContext _context;
+  private readonly JwtAuthenticationManager jwtAuthenticationManager;
 
-  public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+  public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, JwtAuthenticationManager jwtAuthenticationManager)
   {
     _logger = logger;
     _context = context;
+    this.jwtAuthenticationManager = jwtAuthenticationManager;
   }
 
-  public IActionResult Index(){
+  public IActionResult Index()
+  {
+    _context.Database.EnsureCreated();
+    var token = HttpContext.Session.GetString("token");
+    if (token != null)
+    {
+      string? email = jwtAuthenticationManager.DecriptToken(token);
+      User? user = _context.Users.Include(u => u.role).Where(u => u.email == email).FirstOrDefault();
+      if (user != null)
+      {
+        Console.WriteLine(user.role.name);
+        @ViewData["user"] = user;
+      }
+    }
     return View();
   }
   //   public IActionResult Index()
