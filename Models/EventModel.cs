@@ -1,12 +1,12 @@
 namespace carthage.Models;
 
-public class EventModel
+public class Event
 {
-  public int? eventID { get; set; }
-  public string? eventName { get; set; }
-  public string? eventDesc { get; set; }
+  public int? ID { get; set; }
+  public string? name { get; set; }
+  public string? presenter { get; set; }
 
-  public string? presenterName { get; set; }
+  public string? description { get; set; }
 
   public string? category { get; set; }
 

@@ -14,11 +14,15 @@ public class ApplicationDbContext : DbContext
 
   public DbSet<User> Users { get; set; }
   public DbSet<Role> Roles { get; set; }
+  public DbSet<Event> Events { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
+    modelBuilder.Entity<Event>().ToTable("Events");
+
     modelBuilder.Entity<User>().ToTable("Users")
     .HasOne<Role>(u => u.role).WithMany().HasForeignKey(u => u.roleID).IsRequired();
+
     modelBuilder.Entity<Role>().ToTable("Roles").HasMany<User>()
     .WithOne(u => u.role).HasForeignKey(u => u.roleID).OnDelete(DeleteBehavior.Cascade);
   }

@@ -1,6 +1,7 @@
 @{
   ViewData["Title"] = "Add Page";
-  var data = ViewData["Message"];
+  string data = ViewData["Message"] as string;
+  Console.WriteLine(data);
 }
 
 
@@ -14,23 +15,23 @@
   </nav>
 </div><!-- End Page Title -->
 
-@if (data.Equals('1'))
+@if (data == "1")
 {
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="bi bi-check-circle me-1"></i>
-    A simple success alert with icon—check it out!
+    Event successfuly added!
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
     location.href='@Url.Action("dontshow", "AddEventController")' asp-controller="AddEvent"
     asp-action="dontshow"></button>
   </div>
 }
-else if (data.Equals('0'))
+else if (data == "0")
 {
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <i class="bi bi-exclamation-octagon me-1"></i>
-    A simple danger alert with icon—check it out!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <i class="bi bi-exclamation-octagon me-1"></i>
+  Error on adding the event!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 }
 else { }
 <section class="section">
@@ -42,19 +43,18 @@ else { }
           <h5 class="card-title">Adding Event Form</h5>
 
           <!-- Floating Labels Form -->
-          <form class="row g-3" action="AddEvent/setEventDetails" method="POST">
+          <form class="row g-3" asp-controller="Admin" asp-action="addEventHandle" method="POST">
             <div class="col-md-6">
               @* <label for="validationCustom01" class="form-label">Event Name</label> *@
               <div class="form-floating">
 
-                <input type="text" class="form-control" id="floatingName" placeholder="Event Name" name="eventName"
-                  required>
+                <input type="text" class="form-control" id="floatingName" placeholder="Event Name" name="name" required>
                 <label for="floatingName">Event Name</label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="presenterName"
+                <input type="text" class="form-control" id="floatingName" placeholder="Your Name" name="presenter"
                   required>
                 <label for="floatingName">Presenter Name</label>
               </div>
@@ -63,7 +63,7 @@ else { }
             <div class="col-12">
               <div class="form-floating">
                 <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"
-                  name="eventDesc" required></textarea>
+                  name="description" required></textarea>
                 <label for="floatingTextarea">Event Description</label>
               </div>
             </div>

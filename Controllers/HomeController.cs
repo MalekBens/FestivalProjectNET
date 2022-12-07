@@ -16,7 +16,9 @@ public class HomeController : Controller
   private readonly ApplicationDbContext _context;
   private readonly JwtAuthenticationManager jwtAuthenticationManager;
 
-  public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, JwtAuthenticationManager jwtAuthenticationManager)
+  public HomeController(ILogger<HomeController> logger, 
+  ApplicationDbContext context, 
+  JwtAuthenticationManager jwtAuthenticationManager)
   {
     _logger = logger;
     _context = context;
@@ -25,7 +27,6 @@ public class HomeController : Controller
 
   public IActionResult Index()
   {
-    _context.Database.EnsureCreated();
     var token = HttpContext.Session.GetString("token");
     if (token != null)
     {
@@ -33,7 +34,6 @@ public class HomeController : Controller
       User? user = _context.Users.Include(u => u.role).Where(u => u.email == email).FirstOrDefault();
       if (user != null)
       {
-        Console.WriteLine(user.role.name);
         @ViewData["user"] = user;
       }
     }
