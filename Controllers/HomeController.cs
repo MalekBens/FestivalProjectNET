@@ -60,54 +60,54 @@ public class HomeController : Controller
   //   }
 
 
-  [Route("Home/Me/{id:int}")]
-  public IActionResult Me(int id)
-  {
-    Console.WriteLine(id);
-    using var connection = new MySqlConnection("Server=127.0.0.1;User ID=root;Password=;Database=festival");
-    connection.Open();
+  // [Route("Home/Me/{id:int}")]
+  // public IActionResult Me(int id)
+  // {
+  //   Console.WriteLine(id);
+  //   using var connection = new MySqlConnection("Server=127.0.0.1;User ID=root;Password=;Database=festival");
+  //   connection.Open();
 
 
 
-    using var commandDelete = new MySqlCommand("Delete from Event where EventID='" + id + "';", connection);
+  //   using var commandDelete = new MySqlCommand("Delete from Event where EventID='" + id + "';", connection);
 
 
-    commandDelete.ExecuteNonQuery();
-    return RedirectToAction("Index");
-  }
+  //   commandDelete.ExecuteNonQuery();
+  //   return RedirectToAction("Index");
+  // }
 
 
-  [Route("Home/Edit/{id:int}")]
-  public IActionResult Edit(int id)
-  {
-    EventModel ev = new EventModel();
-    Console.Write(id);
-    using var connection = new MySqlConnection("Server=127.0.0.1;User ID=root;Password=;Database=festival");
-    connection.Open();
-    using var commandSelectElement = new MySqlCommand("Select * from Event where eventID = '" + id + "';", connection);
-    using var reader = commandSelectElement.ExecuteReader();
-    while (reader.Read())
-    {
-      ev.eventName = reader.GetString(1);
-      ev.eventDesc = reader.GetString(2);
+  // [Route("Home/Edit/{id:int}")]
+  // public IActionResult Edit(int id)
+  // {
+  //   EventModel ev = new EventModel();
+  //   Console.Write(id);
+  //   using var connection = new MySqlConnection("Server=127.0.0.1;User ID=root;Password=;Database=festival");
+  //   connection.Open();
+  //   using var commandSelectElement = new MySqlCommand("Select * from Event where eventID = '" + id + "';", connection);
+  //   using var reader = commandSelectElement.ExecuteReader();
+  //   while (reader.Read())
+  //   {
+  //     ev.eventName = reader.GetString(1);
+  //     ev.eventDesc = reader.GetString(2);
 
-      ev.presenterName = reader.GetString(3);
+  //     ev.presenterName = reader.GetString(3);
 
-      ev.category = reader.GetString(4);
+  //     ev.category = reader.GetString(4);
 
-      ev.location = reader.GetString(5);
-    }
-    @ViewData["Message"] = ev.eventName;
-    return View();
-  }
-  public IActionResult editEvent(EventModel e)
-  {
-    using var connection = new MySqlConnection("Server=127.0.0.1;User ID=root;Password=;Database=festival");
-    connection.Open();
-    using var commandDelete = new MySqlCommand("Update Event set EventDesc = '" + e.eventDesc + "', Presenter = '" + e.presenterName + "', Category = '" + e.category + "', Location = '" + e.location + "';", connection);
-    commandDelete.ExecuteNonQuery();
-    return RedirectToAction("Index");
-  }
+  //     ev.location = reader.GetString(5);
+  //   }
+  //   @ViewData["Message"] = ev.eventName;
+  //   return View();
+  // }
+  // public IActionResult editEvent(EventModel e)
+  // {
+  //   using var connection = new MySqlConnection("Server=127.0.0.1;User ID=root;Password=;Database=festival");
+  //   connection.Open();
+  //   using var commandDelete = new MySqlCommand("Update Event set EventDesc = '" + e.eventDesc + "', Presenter = '" + e.presenterName + "', Category = '" + e.category + "', Location = '" + e.location + "';", connection);
+  //   commandDelete.ExecuteNonQuery();
+  //   return RedirectToAction("Index");
+  // }
   [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
   public IActionResult Error()
   {

@@ -1,0 +1,81 @@
+@* @{
+    ViewData["Title"] = "Home Page";
+    var data = (List<EventModel>) ViewData["Message"];
+} *@
+
+ <div class="pagetitle">
+      <h1>List Of Orders</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active">Orders list</li>
+        </ol>
+      </nav>
+    </div>
+<section class="section dashboard">
+      <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+          <div class="row">
+
+            <!-- Recent Sales -->
+            <div class="col-12">
+              <div class="card recent-sales overflow-auto" style="border-radius: 25px;padding: 30px;">
+                <div class="card-body">
+                  <h5 class="card-title">Users Orders<span>| Today @DateTime.Now</span></h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                       
+                        <th scope="col">#</th>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Buyer Full Name</th>
+                        <th scope="col">Plan Title</th>
+                        <th scope="col">Plan Price</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+      
+         
+                      <tr>
+                        <th scope="row"><a href="#">#2457</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>At praesentium minu</td>
+                        <td>At praesentium minu</td>
+                        
+                        <td>$64</td>
+                       
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#2457</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>At praesentium minu</td>
+                        <td>At praesentium minu</td>
+                        <td>$64</td>
+                       
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">#2457</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>At praesentium minu</td>
+                        <td>At praesentium minu</td>
+                        <td>$64</td>
+                       
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+
+                </div>
+
+              </div>
+            </div><!-- End Recent Sales -->
+
+          </div>
+        </div>
+      </div>
+</section>
+
