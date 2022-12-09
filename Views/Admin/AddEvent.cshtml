@@ -27,11 +27,11 @@
 }
 else if (data == "0")
 {
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <i class="bi bi-exclamation-octagon me-1"></i>
-  Error on adding the event!
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <i class="bi bi-exclamation-octagon me-1"></i>
+    Error on adding the event!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 }
 else { }
 <section class="section">
@@ -43,7 +43,7 @@ else { }
           <h5 class="card-title">Adding Event Form</h5>
 
           <!-- Floating Labels Form -->
-          <form class="row g-3" asp-controller="Admin" asp-action="addEventHandle" method="POST">
+          <form class="row g-3" asp-controller="Admin" asp-action="addEventHandle" method="POST" enctype="multipart/form-data">
             <div class="col-md-6">
               @* <label for="validationCustom01" class="form-label">Event Name</label> *@
               <div class="form-floating">
@@ -85,7 +85,12 @@ else { }
                 </div>
               </div>
             </div>
-
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Event image : </label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image"> 
+              </div>
+            </div>
             <div class="text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
               <button type="reset" class="btn btn-secondary">Reset</button>

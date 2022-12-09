@@ -1,17 +1,18 @@
 @{
   Layout = "_HomeLayout";
+  List<Plan> plans = ViewData["plans"] as List<Plan>;
 }
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/template/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="~/template/css/bootstrap.min.css">
 
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="~/template/css/fontawesome-all.min.css">
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="~/template/css/fontawesome-all.min.css">
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="~/template/css/swiper.min.css">
-    <link rel="stylesheet" href="~/template/style.css">
-  
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="~/template/css/swiper.min.css">
+<link rel="stylesheet" href="~/template/style.css">
+
 <div class="home">
   <div class="thumbnail position-relative">
     <div class="background w-100 h-100 position-absolute top-0"></div>
@@ -27,7 +28,11 @@
       <div class="home-title">
         <h2 class="lg">International</h2>
         <h2 class="lg">Festival of Carthage.</h2>
-        <button class="btn btn-primary but-btn" asp-controller="Tickets" asp-action="index">Buy Tickets</button>
+        <button class="btn btn-primary but-btn">
+          <a asp-controller="Events" asp-action="index" style="color: #FFF;">
+            Buy Tickets
+          </a>
+        </button>
       </div>
     </div>
   </div>
@@ -54,149 +59,133 @@
     </div>
 
   </div>
-  <div class="content-section" >
+  <div class="content-section">
     <div class="homepage-next-events">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="entry-title">
-                            <p>JUST THE BEST</p>
-                            <h2>Our Next Events</h2>
-                        </div><!-- entry-title -->
-                    </div><!-- col-12 -->
-                </div><!-- row -->
-            </div><!-- container -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="entry-title">
+              <p>JUST THE BEST</p>
+              <h2>Our Next Events</h2>
+            </div><!-- entry-title -->
+          </div><!-- col-12 -->
+        </div><!-- row -->
+      </div><!-- container -->
 
-            <div class="next-event-slider-wrap">
-                <div class="swiper-container next-event-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="~/assets/img/next-event-1.jpg" alt="">
+      <div class="next-event-slider-wrap">
+        <div class="swiper-container next-event-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="next-event-content">
+                <figure class="featured-image">
+                  <img src="~/assets/img/next-event-1.jpg" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
+                  <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                    <h3>Welcoming Party 2018</h3>
+                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                  </a>
+                </figure><!-- featured-image -->
+              </div><!-- next-event-content -->
+            </div><!-- swiper-slide" -->
 
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="~/assets/img/next-event-2.jpg" alt="">
+            <div class="swiper-slide">
+              <div class="next-event-content">
+                <figure class="featured-image">
+                  <img src="~/assets/img/next-event-2.jpg" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
+                  <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                    <h3>Welcoming Party 2018</h3>
+                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                  </a>
+                </figure><!-- featured-image -->
+              </div><!-- next-event-content -->
+            </div><!-- swiper-slide" -->
 
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="~/assets/img/next-event-3.jpg" alt="">
+            <div class="swiper-slide">
+              <div class="next-event-content">
+                <figure class="featured-image">
+                  <img src="~/assets/img/next-event-3.jpg" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
+                  <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                    <h3>Welcoming Party 2018</h3>
+                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                  </a>
+                </figure><!-- featured-image -->
+              </div><!-- next-event-content -->
+            </div><!-- swiper-slide" -->
 
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="~/assets/img/next-event-1.jpg" alt="">
+            <div class="swiper-slide">
+              <div class="next-event-content">
+                <figure class="featured-image">
+                  <img src="~/assets/img/next-event-1.jpg" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
+                  <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                    <h3>Welcoming Party 2018</h3>
+                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                  </a>
+                </figure><!-- featured-image -->
+              </div><!-- next-event-content -->
+            </div><!-- swiper-slide" -->
 
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="~/assets/img/next-event-2.jpg" alt="">
+            <div class="swiper-slide">
+              <div class="next-event-content">
+                <figure class="featured-image">
+                  <img src="~/assets/img/next-event-2.jpg" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
+                  <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                    <h3>Welcoming Party 2018</h3>
+                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                  </a>
+                </figure><!-- featured-image -->
+              </div><!-- next-event-content -->
+            </div><!-- swiper-slide" -->
 
-                        <div class="swiper-slide">
-                            <div class="next-event-content">
-                                <figure class="featured-image">
-                                    <img src="~/assets/img/next-event-3.jpg" alt="">
+            <div class="swiper-slide">
+              <div class="next-event-content">
+                <figure class="featured-image">
+                  <img src="~/assets/img/next-event-3.jpg" alt="">
 
-                                    <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                        <h3>Welcoming Party 2018</h3>
-                                        <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
-                                    </a>
-                                </figure><!-- featured-image -->
-                            </div><!-- next-event-content -->
-                        </div><!-- swiper-slide" -->
-                    </div><!-- .swiper-wrapper -->
-                </div><!-- .swiper-container -->
+                  <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
+                    <h3>Welcoming Party 2018</h3>
+                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                  </a>
+                </figure><!-- featured-image -->
+              </div><!-- next-event-content -->
+            </div><!-- swiper-slide" -->
+          </div><!-- .swiper-wrapper -->
+        </div><!-- .swiper-container -->
 
-                <div class="swiper-button-next">
-                    <img src="~/assets/img/button.png" alt="">
-                </div><!-- .slider-button -->
-            </div><!-- .next-event-slider-wrap -->
-        </div><!-- homepage-next-events -->
+        <div class="swiper-button-next">
+          <img src="~/assets/img/button.png" alt="">
+        </div><!-- .slider-button -->
+      </div><!-- .next-event-slider-wrap -->
+    </div><!-- homepage-next-events -->
   </div>
 
   <div class="plans d-flex justify-content-center align-items-center" id="plans">
     <div class="view w-100">
       <h2 class="text-center lg">Plans?</h2>
       <div class="plans-list w-100">
-        <div class="shadow plan-item">
-          <p class="lg title">Eco</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatibus earum! Blanditiis
-            distinctio, laborum atque.
-          </p>
-          <div class="line"></div>
-          <p class="lg">10 DNT</p>
-        </div>
-        <div class="shadow plan-item">
-          <p class="lg title">Basic</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatibus earum! Blanditiis
-            distinctio, laborum atque.
-          </p>
-          <div class="line"></div>
-          <p class="lg">20 DNT</p>
-        </div>
-        <div class="shadow plan-item">
-          <p class="lg title">Premium</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, voluptatibus earum! Blanditiis
-            distinctio, laborum atque.
-          </p>
-          <div class="line"></div>
-          <p class="lg">50 DNT</p>
-        </div>
+        @foreach (var item in plans)
+        {
+          <div class="shadow plan-item">
+            <p class="lg title">@item.name</p>
+            <p>
+              @item.description
+            </p>
+            <div class="line"></div>
+            <p class="lg">@item.price TND</p>
+          </div>
+        }
       </div>
     </div>
   </div>
 </div>
-    <script type='text/javascript' src='~/template/js/jquery.js'></script>
-    <script type='text/javascript' src='~/template/js/masonry.pkgd.min.js'></script>
-    <script type='text/javascript' src='~/template/js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='~/template/js/swiper.min.js'></script>
-    <script type='text/javascript' src='~/template/js/jquery.countdown.min.js'></script>
-    <script type='text/javascript' src='~/template/js/circle-progress.min.js'></script>
-    <script type='text/javascript' src='~/template/js/jquery.countTo.min.js'></script>
-    <script type='text/javascript' src='~/template/js/custom.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.js'></script>
+<script type='text/javascript' src='~/template/js/masonry.pkgd.min.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='~/template/js/swiper.min.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='~/template/js/circle-progress.min.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.countTo.min.js'></script>
+<script type='text/javascript' src='~/template/js/custom.js'></script>

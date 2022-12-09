@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+
 using carthage.DAL;
 using carthage.Models;
 using carthage.Helper;
@@ -41,8 +45,18 @@ public class AdminController : Controller
     return RedirectToAction("index", "home");
   }
 
-  public IActionResult addEventHandle(Event ev)
+  public async Task<IActionResult> addEventHandle(Event ev)
   {
+    var fileName = Path.GetRandomFileName()+".jpeg";
+    var filePath = Path.Combine("C:/Users/wadis/Desktop/dotnet/FestivalProjectNET/wwwroot/assets/img",
+            fileName);
+
+    using (var stream = System.IO.File.Create(filePath))
+    {
+      await ev.image.CopyToAsync(stream);
+      ev.imagePath = fileName;
+    }
+
     var token = HttpContext.Session.GetString("token");
     if (token != null)
     {
@@ -143,15 +157,64 @@ public class AdminController : Controller
   [Route("Admin/Plans")]
   public IActionResult EditPlans()
   {
+    var token = HttpContext.Session.GetString("token");
+    if (token != null)
+    {
+      string? email = jwtAuthenticationManager.DecriptToken(token);
+      User? user = _context.Users.Include(u => u.role).Where(u => u.email == email).FirstOrDefault();
+      if (user != null && user.role.name == "ADMIN")
+      {
+        List<Plan>? planList = _context.Plans.ToList();
+        @ViewData["user"] = user;
+        @ViewData["plans"] = planList;
+        return View();
+      }
+    }
+    return RedirectToAction("index", "home");
+  }
 
-    return View();
+  [Route("Admin/Plans/{id:int}")]
+  public IActionResult EditPlansHandle(int id, EditPlan data)
+  {
+    var token = HttpContext.Session.GetString("token");
+    if (token != null)
+    {
+      string? email = jwtAuthenticationManager.DecriptToken(token);
+      User? user = _context.Users.Include(u => u.role).Where(u => u.email == email).FirstOrDefault();
+      if (user != null && user.role.name == "ADMIN")
+      {
+        Plan? planToEdit = _context.Plans.Where(p => p.ID == id).FirstOrDefault();
+        if (planToEdit != null)
+        {
+          planToEdit.price = data.price;
+          _context.SaveChanges();
+        }
+        List<Plan>? planList = _context.Plans.ToList();
+        @ViewData["user"] = user;
+        @ViewData["plans"] = planList;
+        return View("/Views/Admin/EditPlans.cshtml");
+      }
+    }
+    return RedirectToAction("index", "home");
   }
 
   [Route("Admin/OrdersList")]
   public IActionResult OrdersList()
   {
-
-    return View("/Views/Admin/OrdersList.cshtml");
+    var token = HttpContext.Session.GetString("token");
+    if (token != null)
+    {
+      string? email = jwtAuthenticationManager.DecriptToken(token);
+      User? user = _context.Users.Include(u => u.role).Where(u => u.email == email).FirstOrDefault();
+      if (user != null && user.role.name == "ADMIN")
+      {
+        List<Order>? orders = _context.Orders.Include(u => u.ev).Include(u => u.plan).Include(u => u.user).ToList();
+        @ViewData["user"] = user;
+        @ViewData["orders"] = orders;
+        return View("/Views/Admin/OrdersList.cshtml");
+      }
+    }
+    return RedirectToAction("index", "home");
   }
 
   // AddEvent/setEventDetails

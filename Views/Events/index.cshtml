@@ -1,20 +1,21 @@
-
 @{
-  Layout = "_TicketsLayout";
+    Layout = "_TicketsLayout";
+    List<Event> data = ViewData["data"] as List<Event>;
 }
+
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/template/css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="~/template/css/bootstrap.min.css">
 
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="~/template/css/fontawesome-all.min.css">
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="~/template/css/fontawesome-all.min.css">
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="~/template/css/swiper.min.css">
-    <link rel="stylesheet" href="~/template/style.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="~/template/css/swiper.min.css">
+<link rel="stylesheet" href="~/template/style.css">
 <div class="blog-page">
 
-<div class="page-header" style="background-size: cover; ">
+    <div class="page-header" style="background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -42,523 +43,44 @@
                 </div>
 
                 <div class="row blog-list-page">
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-1.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
+                    @foreach (var item in data)
+                    {
+                        <div class="col-12 col-md-6 single-blog-content">
+                            <div class="blog-content">
+                                <figure class="featured-image">
+                                    <a href="/ticketEvent/@item.ID"> <img src="~/assets/img/@item.imagePath" alt="fesival+celebration"> </a>
+                                </figure>
 
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
+                                <div class="box-link-date">
+                                    <a href="">@item.category</a>
+                                </div>
 
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
+                                <div class="entry-content">
+                                    <div class="entry-header">
+                                        <h2>@item.name</h2>
+                                    </div>
 
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
+                                    <div class="entry-meta">
+                                        <span class="author-name"><a href="#">By @item.presenter</a></span>
+                                    </div>
 
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
+                                    <div class="entry-description">
+                                        <p>@item.description</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-2.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-3.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-4.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-5.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-6.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-1.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-2.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-3.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-4.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-5.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-6.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-1.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-2.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-3.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-4.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-5.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>New event calendar for this year</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    <div class="col-12 col-md-6 single-blog-content">
-                        <div class="blog-content">
-                            <figure class="featured-image">
-                                <a href="#"> <img src="~/assets/img/blog-image-6.jpg" alt="fesival+celebration"> </a>
-                            </figure><!-- featured-image -->
-
-                            <div class="box-link-date">
-                                <a href="">03.12.18</a>
-                            </div><!-- box-link-date -->
-
-                            <div class="entry-content">
-                                <div class="entry-header">
-                                    <h2>10 Festival Tips</h2>
-                                </div><!-- entry-header -->
-
-                                <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
-                                    <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
-                                </div><!-- entry-meta -->
-
-                                <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum.</p>
-                                </div><!-- entry-description -->
-                            </div><!-- entry-content -->
-                        </div>
-                    </div><!-- col-6 -->
-
-                    
+                    }
                 </div><!-- blog-list-page -->
             </div><!-- last-news -->
         </div><!-- container -->
     </div><!-- main-content -->
 </div>
-    <script type='text/javascript' src='~/template/js/jquery.js'></script>
-    <script type='text/javascript' src='~/template/js/masonry.pkgd.min.js'></script>
-    <script type='text/javascript' src='~/template/js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='~/template/js/swiper.min.js'></script>
-    <script type='text/javascript' src='~/template/js/jquery.countdown.min.js'></script>
-    <script type='text/javascript' src='~/template/js/circle-progress.min.js'></script>
-    <script type='text/javascript' src='~/template/js/jquery.countTo.min.js'></script>
-    <script type='text/javascript' src='~/template/js/custom.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.js'></script>
+<script type='text/javascript' src='~/template/js/masonry.pkgd.min.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='~/template/js/swiper.min.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.countdown.min.js'></script>
+<script type='text/javascript' src='~/template/js/circle-progress.min.js'></script>
+<script type='text/javascript' src='~/template/js/jquery.countTo.min.js'></script>
+<script type='text/javascript' src='~/template/js/custom.js'></script>

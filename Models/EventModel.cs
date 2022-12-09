@@ -11,5 +11,7 @@ public class Event
   public string? category { get; set; }
 
   public string? location { get; set; }
+  public string? imagePath { get; set; }
+  public IFormFile? image { get; set; }
 
 }

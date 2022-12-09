@@ -1,7 +1,7 @@
-@* @{
+@{
     ViewData["Title"] = "Home Page";
-    var data = (List<EventModel>) ViewData["Message"];
-    } *@
+    List<Plan> plans = ViewData["plans"] as List<Plan>;
+}
 
 <div class="pagetitle">
     <h1>Plans</h1>
@@ -38,132 +38,48 @@
                                 </thead>
                                 <tbody>
 
-
-                                    <tr>
-                                        <th scope="row"><a href="#">#2457</a></th>
-                                        <td>Brandon Jacob</td>
-                                        <td>At praesentium minu</td>
-                                        <td>64</td>
-                                        <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#ID">
-                                                Edit Price
-                                            </button>
-                                            <div class="modal fade" id="ID" tabindex="-1">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Edit the Price</h5>
-                                                            <button type="button" class="btn-close"
+                                    @foreach (var item in plans)
+                                    {
+                                        <tr>
+                                            <th scope="row"><a href="#">#@item.ID</a></th>
+                                            <td>@item.name</td>
+                                            <td>@item.description</td>
+                                            <td>@item.price TND</td>
+                                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#ID-@item.ID">
+                                                    Edit Price
+                                                </button>
+                                                <div class="modal fade" id="ID-@item.ID" tabindex="-1">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Edit the Price</h5>
+                                                                <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <form>
-                                                            <div class="modal-body">
-                                                                @* text *@
+                                                            </div>
+                                                            <form action="/Admin/Plans/@item.ID" method="post">
+                                                                <div class="modal-body">
 
-
-                                                                <div class="input-group mb-3">
-                                                                    <span class="input-group-text">TND</span>
-                                                                    <input type="text" class="form-control"
-                                                                        aria-label="Amount (to the nearest dollar)">
-                                                                    <span class="input-group-text">.00</span>
+                                                                    <div class="input-group mb-3">
+                                                                        <span class="input-group-text">TND</span>
+                                                                        <input type="number" class="form-control"
+                                                                        value="@item.price" name="price" required>
+                                                                        <span class="input-group-text">.00</span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </form>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                        changes</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div><!-- End Vertically centered Modal-->
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><a href="#">#2147</a></th>
-                                        <td>Brandon Jacob</td>
-                                        <td>At praesentium minu</td>
-                                        <td>64</td>
-                                        <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#ID">
-                                                Edit Price
-                                            </button>
-                                            <div class="modal fade" id="ID" tabindex="-1">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Edit the Price</h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <form>
-                                                            <div class="modal-body">
-                                                                @* text *@
-
-
-                                                                <div class="input-group mb-3">
-                                                                    <span class="input-group-text">TND</span>
-                                                                    <input type="text" class="form-control"
-                                                                        aria-label="Amount (to the nearest dollar)">
-                                                                    <span class="input-group-text">.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div><!-- End Vertically centered Modal-->
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"><a href="#">#2049</a></th>
-                                        <td>Brandon Jacob</td>
-                                        <td>At praesentium minu</td>
-                                        <td>64</td>
-                                        <td>
-                                            <!-- Vertically centered Modal -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#ID">
-                                                Edit Price
-                                            </button>
-                                            <div class="modal fade" id="ID" tabindex="-1">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Edit the Price</h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <form>
-                                                            <div class="modal-body">
-                                                                @* text *@
-
-
-                                                                <div class="input-group mb-3">
-                                                                    <span class="input-group-text">TND</span>
-                                                                    <input type="text" class="form-control"
-                                                                        aria-label="Amount (to the nearest dollar)">
-                                                                    <span class="input-group-text">.00</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    changes</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div><!-- End Vertically centered Modal-->
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    }
 
                                 </tbody>
                             </table>

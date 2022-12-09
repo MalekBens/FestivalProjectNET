@@ -1,22 +1,25 @@
 @{
-  Layout = "_TicketsLayout";
+    Layout = "_TicketsLayout";
+    List<Plan>? plans = ViewData["plans"] as List<Plan>;
+    Event? ev = ViewData["event"] as Event;
 }
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/template/css/bootstrap.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="~/template/css/bootstrap.min.css">
 
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="~/template/css/fontawesome-all.min.css">
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="~/template/css/fontawesome-all.min.css">
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="~/template/css/swiper.min.css">
-    <link rel="stylesheet" href="~/template/style.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="~/template/css/swiper.min.css">
+<link rel="stylesheet" href="~/template/style.css">
 
 <div class="tickets-page">
-    
 
-    <div class="page-header" style="background-size: cover;">
+
+    <div class="page-header" style="background: url(../assets/img/@ev.imagePath) no-repeat;background-size: cover !important;
+">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -38,59 +41,34 @@
             <div class="entry-header">
                 <div class="entry-title">
                     <p>JUST THE BEST</p>
-                    <h2>Early bird tickets</h2>
+                    <h2>@ev.name tickets</h2>
                 </div><!-- entry-title -->
             </div><!-- entry-header -->
 
-            
+
 
             <div class="row">
                 <div class="col-12">
                     <div class="event-tickets">
-                        <div class="ticket-row flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
-                            <div class="ticket-type flex flex-column flex-lg-row align-items-lg-center">
-                                <h3 class="entry-title">Economic Ticket</h3>
+                        @foreach (var item in plans)
+                        {
+                            <div
+                            class="ticket-row flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
+                                <div class="ticket-type flex flex-column flex-lg-row align-items-lg-center">
+                                    <h3 class="entry-title">@item.name Tiket</h3>
 
-                                <span class="mt-2 mt-lg-0">Basic Entry</span>
+                                    <span class="mt-2 mt-lg-0">@item.name Entry</span>
 
-                                <div class="ticket-price mt-3 mt-lg-0">
-                                    $89
-                                </div><!-- ticket-price -->
-                            </div><!-- ticket-type -->
+                                    <div class="ticket-price mt-3 mt-lg-0">
+                                        @item.price TND
+                                    </div>
+                                </div>
+                                <a href="/buyTiket/@ev.ID/@item.ID">
+                                    <input type="submit" value="Buy" class="btn mt-2 mb-2 mt-lg-0 mb-lg-0">
+                                </a>
+                            </div>
+                        }
 
-                            
-
-                            <input type="submit" name="" value="Buy" class="btn mt-2 mb-2 mt-lg-0 mb-lg-0"><!-- btn -->
-                        </div><!-- ticket-row -->
-
-                        <div class="ticket-row flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
-                            <div class="ticket-type flex flex-column flex-lg-row align-items-lg-center">
-                                <h3 class="entry-title"> Basic Ticket</h3>
-                                <span class="mt-2 mt-lg-0"> Vip Entry</span>
-                                <div class="ticket-price mt-3 mt-lg-0">
-                                    $119
-                                </div><!-- ticket-price -->
-                            </div><!-- ticket-type -->
-
-                            
-                            <input type="submit" name="" value="Buy" class="btn mt-2 mb-2 mt-lg-0 mb-lg-0"><!-- btn -->
-                        </div><!-- ticket-row -->
-
-                        <div class="ticket-row flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
-                            <div class="ticket-type flex flex-column flex-lg-row align-items-lg-center">
-                                <h3 class="entry-title"> Premium Ticket</h3>
-                                <span class="mt-2 mt-lg-0"> Basic Entry</span>
-                                <div class="ticket-price mt-3 mt-lg-0">
-                                    $59
-                                </div><!-- ticket-price -->
-                            </div><!-- ticket-type -->
-
-                            
-
-                            <input type="submit" name="" value="Buy" class="btn mt-2 mb-2 mt-lg-0 mb-lg-0"><!-- btn -->
-                        </div><!-- ticket-row -->
-
-                        
                     </div><!-- event-tickets -->
                 </div><!-- col-12 -->
             </div><!-- row -->
@@ -116,7 +94,7 @@
 
                         <div class="copyright-info">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div><!-- copyright-info -->
 
                         <div class="footer-social">

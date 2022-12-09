@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using carthage.Models;
-using MySqlConnector;
-using carthage.Helper;
 using Microsoft.EntityFrameworkCore;
+
+using carthage.Models;
+using carthage.Helper;
 
 
 using carthage.DAL;
@@ -16,8 +16,8 @@ public class HomeController : Controller
   private readonly ApplicationDbContext _context;
   private readonly JwtAuthenticationManager jwtAuthenticationManager;
 
-  public HomeController(ILogger<HomeController> logger, 
-  ApplicationDbContext context, 
+  public HomeController(ILogger<HomeController> logger,
+  ApplicationDbContext context,
   JwtAuthenticationManager jwtAuthenticationManager)
   {
     _logger = logger;
@@ -37,6 +37,8 @@ public class HomeController : Controller
         @ViewData["user"] = user;
       }
     }
+    List<Plan>? plans = _context.Plans.ToList();
+    @ViewData["plans"] = plans;
     return View();
   }
   //   public IActionResult Index()
